@@ -1,18 +1,21 @@
 import React, {useState} from 'react';
+import CardMain from "../../components/CardMain/CardMain";
 import {useDispatch, useSelector} from "react-redux";
-import {login} from "../../redux/features/auth/authSlice";
+import {createPost} from "../../redux/features/posts/postsSlice";
+import {login, register} from "../../redux/features/auth/authSlice";
 
-const Login = () => {
+const Register = () => {
     const dispatch = useDispatch()
 
     const [username, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [passwordCheck, setPasswordCheck] = useState("");
 
     const onSaveUserClicked = () =>{
         const formData = {username, password}
         console.log(formData)
-        dispatch(login(formData))
+        dispatch(register(formData))
         // setName('')
         // setEmail('')
         // setPassword('')
@@ -22,7 +25,7 @@ const Login = () => {
     return (
         <div>
             <section>
-                <h2>Login</h2>
+                <h2>Register</h2>
                 <form>
                     <label htmlFor="postTitle">Name:</label>
                     <input
@@ -48,14 +51,22 @@ const Login = () => {
                         value={password}
                         onChange={(e)=>setPassword(e.target.value)}
                     />
+                    <input
+                        type="password"
+                        id="postTitle"
+                        name="postTitle"
+                        value={passwordCheck}
+                        onChange={(e)=>setPasswordCheck(e.target.value)}
+                    />
                     <button
                         type="button"
                         onClick={onSaveUserClicked}
-                    >Login</button>
+                        disabled={!(password === passwordCheck)}
+                    >Register</button>
                 </form>
             </section>
         </div>
     );
 };
 
-export default Login;
+export default Register;

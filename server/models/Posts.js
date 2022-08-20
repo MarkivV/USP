@@ -9,20 +9,32 @@ const PostSchema = new mongoose.Schema(
             type: String,
             required: true,
         },
+        creator: {
+            type: String
+        },
         category: {
             type: String,
+            required: true
+        },
+        tags: {
+            type: [String]
         },
         img: {
             type: String,
         },
-        password: {
-            type: String,
-            required: true,
+        createdAt: {
+            type: Date,
+            default: new Date()
         },
-        isAdmin: {
+        published: {
             type: Boolean,
-            default: false,
+            default: false
         },
+        likes: {
+            type: [String],
+            default: []
+        },
+
     },
     { timestamps: true }
 );
