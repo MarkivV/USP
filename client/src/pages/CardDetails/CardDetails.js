@@ -2,6 +2,7 @@ import React, {useEffect} from 'react';
 import {useLocation, useParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {getPost} from "../../redux/features/posts/postsSlice";
+import CardMain from "../../components/CardMain/CardMain";
 
 const CardDetails = () => {
     const {id} = useParams()
@@ -9,18 +10,26 @@ const CardDetails = () => {
     const location = useLocation()
     const {posts, loading} = useSelector((state) => ({...state.posts}))
     useEffect(() => {
-        if(id){dispatch(getPost(id))}
-    }, [id]);
+      dispatch(getPost(id))
+    }, []);
     console.log(posts)
     return (
         <div>
-            <img style={{maxWidth: "150px"}} src={posts.img} alt="image"/>
-            <h3>{posts.title}</h3>
-            <h3>{posts.published ? "Posted" : "Not published yet"}</h3>
-            <h4>{posts.category}</h4>
-            <p>{posts.description}</p>
-            <p>{posts.creator}</p>
-            <p>{posts._id}</p>
+            {
+                loading ? (
+                    <div>
+                        Loading...
+                    </div>
+                ) : (
+                    <div>
+                        {
+                            posts.map(user=>(
+                                <CardMain post={user} key={user._id}/>
+                            ))
+                        }
+                    </div>
+                )
+            }
         </div>
     );
 };

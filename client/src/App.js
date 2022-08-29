@@ -11,6 +11,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Register from "./pages/Register/Register";
 import CardDetails from "./pages/CardDetails/CardDetails";
 import Suggest from "./pages/Suggest/Suggest";
+import Footer from "./components/Footer/Footer";
 
 
 
@@ -29,6 +30,7 @@ function App() {
           <Route exact path="/publication/:id" element={<CardDetails/>}/>
           <Route exact path="/suggest" element={<Suggest/>}/>
         </Routes>
+          <Footer/>
       </BrowserRouter>
   );
 }

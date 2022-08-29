@@ -19,6 +19,7 @@ export const fetchPostsCategory = (category) => API.get(`/posts/category/${categ
 export const createPost = (newPost) =>API.post('/posts', newPost)
 export const updatePost = (id, updatedPost) => API.patch(`/posts/${id}`, updatedPost);
 export const deletePost = (id) => API.delete(`/posts/${id}`);
+export const getUsersList = () => API.get(`/users`)
 
 export const signIn = (formData) => API.post('/auth/login', formData)
 export const signUp = (formData) => API.post('/auth/register', formData)

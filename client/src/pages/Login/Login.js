@@ -10,7 +10,7 @@ const Login = () => {
     const [password, setPassword] = useState("");
 
     const onSaveUserClicked = () =>{
-        const formData = {username, password}
+        const formData = {email, password}
         console.log(formData)
         dispatch(login(formData))
         // setName('')
@@ -24,14 +24,6 @@ const Login = () => {
             <section>
                 <h2>Login</h2>
                 <form>
-                    <label htmlFor="postTitle">Name:</label>
-                    <input
-                        type="text"
-                        id="postTitle"
-                        name="postTitle"
-                        value={username}
-                        onChange={(e)=>setName(e.target.value)}
-                    />
                     <label htmlFor="postAuthor">Email:</label>
                     <input
                         type="text"

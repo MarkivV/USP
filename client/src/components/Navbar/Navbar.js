@@ -1,17 +1,35 @@
 import React from 'react';
 import {Link} from "react-router-dom";
+import {
+    AppBar,
+    Toolbar,
+    CssBaseline,
+    Typography,
+    makeStyles,
+} from "@material-ui/core";
+import {Box} from "@mui/material";
+
+
 
 const Navbar = () => {
+
     return (
-        <div style={{display: "flex", height: "70px", margin: "25px", maxWidth: "100%"}}>
-            <Link to={"/login"}><h2 style={{marginLeft: "25px", color: "white"}}>Login</h2></Link>
-            <Link to={"/register"}><h2 style={{marginLeft: "25px", color: "white"}}>Register</h2></Link>
-            <Link to={"/"}><h2 style={{marginLeft: "25px", color: "white"}}>Main</h2></Link>
-            <Link to={"/categories/politic"}><h2 style={{marginLeft: "25px", color: "white"}}>Politic</h2></Link>
-            <Link to={"/categories/society"}><h2 style={{marginLeft: "25px", color: "white"}}>Society</h2></Link>
-            <Link to={"/suggest"}><h2 style={{marginLeft: "25px", color: "white"}}>Suggest</h2></Link>
-        </div>
-    );
+        <Box>
+            <AppBar position="sticky" style={{background: "#14110F", height: "61px"}}>
+                <Toolbar >
+                    <Typography variant="h6" component="div" style={{fontWeight: 900, fontSize: "32px" }}>
+                        ПУСВ
+                    </Typography>
+                        <Link to={"/main"} style={{textDecoration: 'none'}} ><h2>Головна</h2></Link>
+                        <Link to={"/categories/politic"} style={{textDecoration: 'none'}}><h2>Політика</h2></Link>
+                        <Link to={"/"} style={{textDecoration: 'none'}} ><h2>Наука</h2></Link>
+                        <Link to={"/categories/society"} style={{textDecoration: 'none'}} ><h2>Суспільство</h2></Link>
+                        <Link to={"/categories/society"} style={{textDecoration: 'none'}} ><h2>Блог</h2></Link>
+                        <Link to={"/suggest"}  style={{textDecoration: 'none'}}><h2>Запропонувати новину</h2></Link>
+                </Toolbar>
+            </AppBar>
+        </Box>
+        );
 };
 
 export default Navbar;

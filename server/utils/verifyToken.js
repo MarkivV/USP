@@ -27,7 +27,7 @@ export const verifyUser = (req, res, next) => {
 };
 
 
-const auth = async (req, res, next) => {
+export const auth = async (req, res, next) => {
     try {
         const token = req.headers.authorization.split(' ')[1]
         const isCustomAuth = token.length < 500

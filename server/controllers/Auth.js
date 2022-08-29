@@ -18,9 +18,9 @@ export const register = async (req, res, next) => {
     }
 };
 export const login = async (req, res, next) => {
-    const {username, password} = req.body
+    const {email, password} = req.body
     try{
-        const existingUser = await User.findOne({username})
+        const existingUser = await User.findOne({email})
         if(!existingUser) return res.status(404).json({message: "User doesn't exist"})
         const isPassword = await bcrypt.compare(password, existingUser.password)
         if(!isPassword) return res.status(400).json({message: "Invalid credentials"})

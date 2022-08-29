@@ -88,6 +88,9 @@ export const postsSlice = createSlice({
         },
         [getPosts.fulfilled]: (state, action) => {
             state.loading = false
+            // const posts = state.posts.filter(post => post.published !== true);
+            // console.log(posts)
+            // state.posts = [...posts, action.payload];
             state.posts = action.payload
         },
         [getPosts.rejected]: (state) => {
@@ -111,6 +114,8 @@ export const postsSlice = createSlice({
             state.loading = false;
             const posts = state.posts.filter(post => post._id !== _id);
             state.posts = [...posts, action.payload];
+
+
         },
         [updatePost.rejected]: (state, action) => {
             state.loading = false;
