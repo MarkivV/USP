@@ -1,52 +1,53 @@
 import React from 'react';
-import {Box, Container, Grid, Stack, Typography} from "@mui/material";
+import {Box,Grid, Stack} from "@mui/material";
 import Divider from '@mui/material/Divider';
 import {Link} from "react-router-dom";
+import "./style.css"
 
 const Footer = () => {
     return (
-        <Box style={{height: "375px", background: "#14110F"}}>
+        <Box style={{background: "#14110F"}}>
             <Grid container>
-                <Grid xs={4}>
+                <Grid xs={12} md={4}>
                     <Stack direction={"column"} spacing={1}  style={{ padding: "35px"}}>
                         <h6 >
                             Навігація
                         </h6>
                         <Divider orientation="horizontal" style={{background: "white"}} variant={"middle"}/>
                         <Stack direction={"column"} style={{marginTop: "10px"}}>
-                            <Link to={"/main"} style={{textDecoration: 'none'}} ><h3>Головна</h3></Link>
-                            <Link to={"/categories/politic"} style={{textDecoration: 'none'}}><h3>Політика</h3></Link>
-                            <Link to={"/"} style={{textDecoration: 'none'}} ><h3>Наука</h3></Link>
-                            <Link to={"/categories/society"} style={{textDecoration: 'none'}} ><h3>Суспільство</h3></Link>
-                            <Link to={"/categories/society"} style={{textDecoration: 'none'}} ><h3>Блог</h3></Link>
-                            <Link to={"/suggest"}  style={{textDecoration: 'none'}}><h3>Запропонувати новину</h3></Link>
+                            <Link to={"/main"}  ><h3>Головна</h3></Link>
+                            <Link to={"/categories/politic"} ><h3>Політика</h3></Link>
+                            <Link to={"/"}  ><h3>Наука</h3></Link>
+                            <Link to={"/categories/society"}  ><h3>Суспільство</h3></Link>
+                            <Link to={"/categories/society"}  ><h3>Блог</h3></Link>
+                            <Link to={"/suggest"}  ><h3>Запропонувати новину</h3></Link>
                         </Stack>
                     </Stack>
                     </Grid>
-                <Grid xs={4}>
+                <Grid xs={12} md={4}>
                     <Stack direction={"column"} spacing={1} style={{ padding: "35px"}}>
                         <h6 >
                             Підтримка
                         </h6>
                         <Divider orientation="horizontal" style={{background: "white"}} variant={"middle"}/>
                         <Stack direction={"column"} style={{marginTop: "10px"}}>
-                            <Link to={"/main"} style={{textDecoration: 'none'}} ><h3>Політика конфіденційності</h3></Link>
-                            <Link to={"/categories/politic"} style={{textDecoration: 'none'}}><h3>Про ПУСВ</h3></Link>
-                            <Link to={"/"} style={{textDecoration: 'none'}} ><h3 style={{fontWeight: 700}}>Важливо</h3></Link>
+                            <Link to={"/main"}  ><h3>Політика конфіденційності</h3></Link>
+                            <Link to={"/categories/politic"} ><h3>Про ПУСВ</h3></Link>
+                            <Link to={"/"}  ><h3 style={{fontWeight: 700}}>Важливо</h3></Link>
                         </Stack>
                     </Stack>
                 </Grid>
-                <Grid xs={4}>
+                <Grid xs={12} md={4}>
                     <Stack direction={"column"} spacing={1} style={{ padding: "35px"}}>
                         <h6>
                             Контакти
                         </h6>
                         <Divider orientation="horizontal" style={{background: "white"}} variant={"middle"}/>
                         <Stack direction={"column"} style={{marginTop: "10px"}}>
-                            <Link to={"/main"} style={{textDecoration: 'none'}} ><h3>Instagram</h3></Link>
-                            <Link to={"/categories/politic"} style={{textDecoration: 'none'}}><h3>Telegram</h3></Link>
-                            <Link to={"/"} style={{textDecoration: 'none'}} ><h3>Facebook</h3></Link>
-                            <Link to={"/categories/society"} style={{textDecoration: 'none'}} ><h3>Email</h3></Link>
+                            <Link to={"/main"}  ><h3>Instagram</h3></Link>
+                            <Link to={"/categories/politic"} ><h3>Telegram</h3></Link>
+                            <Link to={"/"}  ><h3>Facebook</h3></Link>
+                            <Link to={"/categories/society"}  ><h3>Email</h3></Link>
                         </Stack>
                     </Stack>
                 </Grid>

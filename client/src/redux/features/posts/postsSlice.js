@@ -1,18 +1,11 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import * as api from "../../../api/index";
-import {fetchPost, fetchPostsCategory} from "../../../api/index";
 export const getPosts = createAsyncThunk(
     'posts/getPosts',
     async (thunkAPI)=> {
         const response = await api.fetchPosts()
     return response.data.data
 })
-export const getPost = createAsyncThunk(
-    'posts/getPost',
-    async (id,thunkAPI)=> {
-        const response = await api.fetchPost(id)
-        return response.data.data
-    })
 export const createPost = createAsyncThunk(
     'posts/createPosts',
     async (newPost,thunkAPI)=> {
@@ -32,15 +25,9 @@ export const updatePost = createAsyncThunk(
     'posts/updatePost',
     async (post,thunkAPI)=> {
         const {_id} = post
-        const postEdited = {...post, published: true}
+        const postEdited = {...post}
         const response = await api.updatePost(_id, postEdited)
         return response.data
-    })
-export const getCategory = createAsyncThunk(
-    'posts/getCategory',
-    async (category,thunkAPI)=> {
-        const response = await api.fetchPostsCategory(category)
-        return response.data.data
     })
 
 const initialState = {
@@ -120,33 +107,14 @@ export const postsSlice = createSlice({
         [updatePost.rejected]: (state, action) => {
             state.loading = false;
             state.error = action.payload.message;
-        },
-        [getCategory.pending]: (state) => {
-            state.loading = true
-        },
-        [getCategory.fulfilled]: (state, action) => {
-            state.loading = false
-            console.log()
-            state.posts = action.payload
-        },
-        [getCategory.rejected]: (state) => {
-            state.loading = false
-        },
-        [getPost.pending]: (state) => {
-            state.loading = true
-        },
-        [getPost.fulfilled]: (state, action) => {
-            state.loading = false
-            state.posts = action.payload
-        },
-        [getPost.rejected]: (state) => {
-            state.loading = false
-        },
+        }
     },
 })
 
 
 export const {postAdded} = postsSlice.actions
-
+// export const selectAllPosts = (state) => state.posts;
+export const selectPostById = (state, postId) =>
+    state.posts.posts.find(post => post._id === postId);
 
 export default postsSlice.reducer

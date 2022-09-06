@@ -12,6 +12,7 @@ import Register from "./pages/Register/Register";
 import CardDetails from "./pages/CardDetails/CardDetails";
 import Suggest from "./pages/Suggest/Suggest";
 import Footer from "./components/Footer/Footer";
+import Admin from "./pages/Admin/Admin";
 
 
 
@@ -20,16 +21,18 @@ function App() {
   return (
       <BrowserRouter>
           <Navbar/>
-        <Routes>
-          <Route exact path="/"  element={<Navigate to={"/main"}/>}/>
-          <Route exact path="/main" element={<Main/>}/>
-          <Route exact path="/categories/:category" element={<Categories/>}/>
-          <Route exact path="/profile/:id" element={<Profile/>}/>
-          <Route exact path="/login" element={<Login/>}/>
-          <Route exact path="/register" element={<Register/>}/>
-          <Route exact path="/publication/:id" element={<CardDetails/>}/>
-          <Route exact path="/suggest" element={<Suggest/>}/>
-        </Routes>
+            <Routes>
+              <Route exact path="/"  element={<Navigate to={"/main"}/>}/>
+              <Route exact path="/main" element={<Main/>}/>
+              <Route exact path="/categories/:category" element={<Categories/>}/>
+              <Route exact path="/profile/:id" element={<Profile/>}/>
+              <Route exact path="/login" element={<Login/>}/>
+              <Route exact path="/register" element={<Register/>}/>
+              <Route exact path="/publication/:id" element={<CardDetails/>}/>
+              <Route exact path="/suggest" element={<Suggest/>}/>
+              <Route exact path="/admin" element={<Admin/>}/>
+              <Route exact path="/profile" element={<Profile/>}/>
+            </Routes>
           <Footer/>
       </BrowserRouter>
   );

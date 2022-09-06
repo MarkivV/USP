@@ -1,17 +1,34 @@
 import User from "../models/User.js";
+import jwt from "jsonwebtoken";
+import mongoose from "mongoose";
+import Post from "../models/Posts.js";
 
 export const updateUser = async (req,res,next)=>{
+
     try {
         const updatedUser = await User.findByIdAndUpdate(
             req.params.id,
             { $set: req.body },
             { new: true }
         );
-        res.status(200).json(updatedUser);
+        const token = jwt.sign({email: updatedUser.email, id: updatedUser._id},process.env.JWT )
+        res.status(200).json({result: updatedUser, token});
     } catch (err) {
         next(err);
     }
 }
+
+//
+// const post = req.body
+// const { id: _id } = req.params
+//
+// if (!mongoose.Types.ObjectId.isValid(_id)) return res.status(404).send(`No post with id: ${_id}`);
+//
+// const updatedPost = await Post.findByIdAndUpdate(_id, {...post, _id}, {new: true})
+//
+// res.json(updatedPost)
+
+
 export const deleteUser = async (req,res,next)=>{
     try {
         await User.findByIdAndDelete(req.params.id);

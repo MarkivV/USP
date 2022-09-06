@@ -16,15 +16,7 @@ export const getPosts = async (req, res) =>{
     }
 }
 
-export const getPost = async (req, res) =>{
-    const { id: _id } = req.params
-    try{
-        const post = await Post.find({_id: _id})
-        res.status(200).json({data: post})
-    }catch(error){
-        res.status(404).json({message: error.message})
-    }
-}
+
 
 
 export const createPost = async (req, res) =>{
@@ -84,5 +76,6 @@ export const getPostsByCategory = async (req,res) =>{
         res.status(409).json({message: error.message})
     }
 }
+
 
 

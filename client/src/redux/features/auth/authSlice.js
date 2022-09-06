@@ -36,7 +36,6 @@ const authSlice = createSlice({
         },
         [login.fulfilled]: (state, action) => {
             state.loading = false;
-            console.log({...action?.payload})
             localStorage.setItem('profile', JSON.stringify({...action?.payload}))
             state.user = action.payload;
         },

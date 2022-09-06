@@ -2,7 +2,6 @@ import express from "express";
 import {
     createPost,
     deletePost,
-    getPost,
     getPosts,
     getPostsByCategory,
     getPostsByUserId,
@@ -12,7 +11,6 @@ import {auth, verifyAdmin, verifyUser} from "../utils/verifyToken.js";
 const router = express.Router()
 
 router.get('/', getPosts)
-router.get('/:id', getPost)
 router.post('/', auth, createPost)
 router.patch('/:id', updatePost)
 router.delete('/:id', deletePost)
